@@ -119,3 +119,8 @@ fn main() {
 }
 
 ```
+For all our previous programs we have been using our own prompt function. The problem with our current approach is that we need to keep re-writing it. We have a few options.  
+1. Package our function into a utility crate and upload it to crates.io
+2. Find an existing crate that has what we are looking for.
+
+The problem with the first approach is that we end up using a namespace on crates.io. Unless we are creating something that doesn't exist, it would be wasteful. 
