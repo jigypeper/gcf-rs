@@ -119,8 +119,15 @@ fn main() {
 }
 
 ```
-For all our previous programs we have been using our own prompt function. The problem with our current approach is that we need to keep re-writing it. We have a few options.  
-1. Package our function into a utility crate and upload it to crates.io
-2. Find an existing crate that has what we are looking for.
+In our previous programs, we consistently relied on a custom prompt function. However, this approach presents a challenge: the need for repetitive implementation. To address this, we are considering two alternatives:
 
-The problem with the first approach is that we end up using a namespace on crates.io. Unless we are creating something that doesn't exist, it would be wasteful. 
+1. Create a Utility Crate: 
+
+- Package our prompt function into a utility crate and publish it to crates.io.  
+- This option provides the benefit of having our own reusable crate. However, it may lead to namespace clutter on crates.io, especially if similar functionalities already exist.  
+
+2. Explore Existing Crates:  
+
+- Investigate available crates to find one that meets our prompt function requirements.  
+- This approach leverages the existing Rust ecosystem, potentially saving us from reinventing the wheel.
+While the first option offers a dedicated solution, it may be considered wasteful if comparable functionality is readily available. The second option encourages us to integrate seamlessly into the Rust ecosystem by adopting existing and proven solutions.
