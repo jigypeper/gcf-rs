@@ -1,26 +1,8 @@
-use std::{fmt::Debug, io, str::FromStr};
+use promptuity::prompts::Number;
+use promptuity::themes::FancyTheme;
+use promptuity::{Error, Promptuity, Term};
 
-fn ask_question<T>(question: &str) -> T
-where
-    T: FromStr,
-    <T as FromStr>::Err: Debug,
-{
-    loop {
-        println!("{question}");
-        let mut input = String::new();
-
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read input");
-
-        match input.trim().parse::<T>() {
-            Ok(num) => return num,
-            Err(e) => println!("{:?}, please try again.", e),
-        }
-    }
-}
-
-fn calculate_gcf(mut a: u32, mut b: u32) -> u32 {
+fn calculate_gcf(mut a: isize, mut b: isize) -> isize {
     while b != 0 {
         let temp = b;
         b = a % b;
@@ -29,13 +11,24 @@ fn calculate_gcf(mut a: u32, mut b: u32) -> u32 {
     a
 }
 
-fn main() {
-    println!("Greatest Common Factor Calculator\n---------------------------------");
+fn main() -> Result<(), Error> {
+    let mut term = Term::default();
+    let mut theme = FancyTheme::default();
+    let mut p = Promptuity::new(&mut term, &mut theme);
 
-    let number_1: u32 = ask_question("Enter the first number:");
-    let number_2: u32 = ask_question("Enter the second number:");
+    p.term().clear()?;
 
+    p.with_intro("Greatest Common Factor Calculator").begin()?;
+
+    let number_1 = p.prompt(Number::new("Enter the first number").with_min(0))?;
+    let number_2 = p.prompt(Number::new("Enter the second number").with_min(0))?;
     let gcf = calculate_gcf(number_1, number_2);
 
-    println!("The GCF for {} and {} is {}", number_1, number_2, gcf);
+    p.with_outro(format!(
+        "The GCF for {} and {} is {}",
+        number_1, number_2, gcf
+    ))
+    .finish()?;
+
+    Ok(())
 }

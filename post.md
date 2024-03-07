@@ -131,3 +131,6 @@ In our previous programs, we consistently relied on a custom prompt function. Ho
 - Investigate available crates to find one that meets our prompt function requirements.  
 - This approach leverages the existing Rust ecosystem, potentially saving us from reinventing the wheel.
 While the first option offers a dedicated solution, it may be considered wasteful if comparable functionality is readily available. The second option encourages us to integrate seamlessly into the Rust ecosystem by adopting existing and proven solutions.
+
+A quick search on crates.io shows that there are many existing prompt implementations. Promptuity is a good option, it even comes with a fancy theme and  
+error handling/data type conversions built in.
