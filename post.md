@@ -133,4 +133,9 @@ In our previous programs, we consistently relied on a custom prompt function. Ho
 While the first option offers a dedicated solution, it may be considered wasteful if comparable functionality is readily available. The second option encourages us to integrate seamlessly into the Rust ecosystem by adopting existing and proven solutions.
 
 A quick search on crates.io shows that there are many existing prompt implementations. Promptuity is a good option, it even comes with a fancy theme and  
-error handling/data type conversions built in.
+error handling/data type conversions built in.  
+Our first step is to add promptuity as a dependency to our Cargo.toml file:  
+```toml
+[dependencies]
+promptuity = "0.0.5"
+```
