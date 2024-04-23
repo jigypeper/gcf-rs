@@ -139,3 +139,7 @@ Our first step is to add promptuity as a dependency to our Cargo.toml file:
 [dependencies]
 promptuity = "0.0.5"
 ```
+We can now import the crates and functions.  
+```rust
+use promptuity
+```
