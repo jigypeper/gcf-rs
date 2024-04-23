@@ -141,5 +141,7 @@ promptuity = "0.0.5"
 ```
 We can now import the crates and functions.  
 ```rust
-use promptuity
+use promptuity::prompts::Number;
+use promptuity::themes::FancyTheme;
+use promptuity::{Error, Promptuity, Term};
 ```
