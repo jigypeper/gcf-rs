@@ -139,9 +139,15 @@ Our first step is to add promptuity as a dependency to our Cargo.toml file:
 [dependencies]
 promptuity = "0.0.5"
 ```
-We can now import the crates and functions.  
+We can now import the crates and prompts.  
 ```rust
 use promptuity::prompts::Number;
 use promptuity::themes::FancyTheme;
 use promptuity::{Error, Promptuity, Term};
+```
+Switching over to promptuity means we can also remove our ask_question function, since this will all be handled by promptuity now.
+```rust
+let mut term = Term::default();
+let mut theme = FancyTheme::default();
+let mut p = Promptuity::new(&mut term, &mut theme);
 ```
