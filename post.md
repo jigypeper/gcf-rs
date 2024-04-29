@@ -145,7 +145,7 @@ use promptuity::prompts::Number;
 use promptuity::themes::FancyTheme;
 use promptuity::{Error, Promptuity, Term};
 ```
-Switching over to promptuity means we can also remove our ask_question function, since this will all be handled by promptuity now.
+Switching over to promptuity means we can also remove our ask_question function, since this will all be handled by promptuity now. The new process is to create the terminal, add a theme, and then a mutible prompt.
 ```rust
 let mut term = Term::default();
 let mut theme = FancyTheme::default();
