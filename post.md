@@ -151,3 +151,8 @@ let mut term = Term::default();
 let mut theme = FancyTheme::default();
 let mut p = Promptuity::new(&mut term, &mut theme);
 ```
+
+There's nothing quite like using a library that is engineered to the point that your own work becomes so easy.
+Promptuity allows us to choose a data type for input. In our case, we are using numbers.
+Try entering letters and it won't let you.
+This makes error handling a breeze.
