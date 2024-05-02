@@ -156,3 +156,30 @@ There's nothing quite like using a library that is engineered to the point that 
 Promptuity allows us to choose a data type for input. In our case, we are using numbers.
 Try entering letters and it won't let you.
 This makes error handling a breeze.
+
+The steps are.
+1. Clear the terminal
+2. Start the prompt with an intro
+3. Ask for user input
+4. Run the calculation
+5. Display result with an outro.
+
+Simple!
+
+```rust
+p.term().clear()?;
+
+p.with_intro("Greatest Common Factor Calculator").begin()?;
+
+let number_1 = p.prompt(Number::new("Enter the first number").with_min(0))?;
+let number_2 = p.prompt(Number::new("Enter the second number").with_min(0))?;
+let gcf = calculate_gcf(number_1, number_2);
+
+p.with_outro(format!(
+    "The GCF for {} and {} is {}",
+    number_1, number_2, gcf
+))
+.finish()?;
+
+Ok(())
+```
