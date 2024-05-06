@@ -183,4 +183,4 @@ p.with_outro(format!(
 
 Ok(())
 ```
-Given that we are running in another shell, our main function returns a result enum. Which gives us the option tk explicitly handle the error case.
+Given that we are running in another shell, our main function returns a result enum. Which gives us the option to explicitly handle the error case.
